@@ -1,0 +1,65 @@
+﻿<div class="header">
+    <div class="top-header">
+        <div class="container">
+            <div class="top-header-left">
+                <ul class="support">
+                    <li><a href="#"><label> </label></a></li>
+                    <li><a href="#"><span class="live"> Hỗ trợ 24/24</span></a></li>
+                </ul>
+                <ul class="support">
+                    <li class="van"><a href="#"><label> </label></a></li>
+                    <li><a href="#"><span class="live">Miễn phí giao hàng</span></a></li>
+                </ul>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="top-header-right">
+
+                <!---->
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="bottom-header">
+        <div class="container">
+            <div class="header-bottom-left">
+                <div class="logo">
+                    <a href="/"><img src="https://cdn.dribbble.com/users/2501248/screenshots/5717334/ebook_800x600.jpg" alt=" " style="height:120px;width:170px" /></a>
+                </div>
+                <div class="search">
+                    @*<form action="/tim-kiem" method="get"> 
+                        <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+                        <input type="submit" value="Tìm kiếm">
+                    </form>*@
+                    <form action="/tim-kiem" method="get">
+                        <input type="text" id="txtKeyword" name="keyword" placeholder="Gõ từ khóa">
+                        <input type="submit" value="">
+                    </form>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="header-bottom-right">
+                <div class="account"><a href="#"><span> </span>Tài khoản</a></div>
+                <ul class="login">
+                    @{
+                        var session = Session["UserStatus"];
+                    }
+                    @if (session == null)
+                    {
+                        <li><a href="/dang-nhap" target="_self"><span> </span>Đăng nhập</a></li>
+                        <li><a href="/dang-ky">Đăng ký</a></li>
+                    }
+                    else
+                    {
+                        <li>Xin chào: @session</li>
+                        <li>@Html.ActionLink("Thoát", "Logout", "User")</li>
+                    }
+
+                </ul>
+                <div class="cart"><a href="#"><span> </span>Giỏ hàng</a></div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,241 @@
+﻿
+@{
+    ViewBag.Title = "Trang chủ";
+    var listNewProduct = (List<Model.EF.Product>)ViewBag.NewProducts;
+    var listFeatureProduct = (List<Model.EF.Product>)ViewBag.ListFeatureProducts;
+}
+<head>
+    <title>Big shope A Ecommerce Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!--theme-style-->
+    <link href="~/assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!--//fonts-->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <!--script-->
+</head>
+<body>
+    <!--header-->
+    @{ Html.RenderAction("Header", "Home");}
+    <!---->
+    <div class="container">
+        <div class="shoes-grid">
+            <a href="single.html">
+                <div class="wrap-in">
+                    <div class="wmuSlider example1 slide-grid">
+                        <div class="wmuSliderWrapper">
+                            <article style="position: absolute; width: 100%; opacity: 0;">
+                                <div class="banner-matter">
+                                    <div class="col-md-12 banner-bag">
+                                        <img class="img-responsive " src="https://cdn0.fahasa.com/media/magentothem/banner7/HRL_920x420.jpg" alt=" " />
+                                    </div>
+
+                                    <div class="clearfix"> </div>
+                                </div>
+                            </article>
+                            <article style="position: absolute; width: 100%; opacity: 0;">
+                                <div class="banner-matter">
+                                    <div class="col-md-12 banner-bag">
+                                        <img class="img-responsive " src="https://cdn0.fahasa.com/media/magentothem/banner7/DA-920x420.jpg" alt=" " />
+                                    </div>
+
+                                    <div class="clearfix"> </div>
+                                </div>
+                            </article>
+                            <article style="position: absolute; width: 100%; opacity: 0;">
+                                <div class="banner-matter">
+                                    <div class="col-md-12 banner-bag">
+                                        <img class="img-responsive " src="https://cdn0.fahasa.com/media/magentothem/banner7/back-to-school-920x420.jpg" alt=" " />
+                                    </div>
+
+
+                                    <div class="clearfix"> </div>
+                                </div>
+                            </article>
+                            <article style="position: absolute; width: 100%; opacity: 0;">
+                                <div class="banner-matter">
+                                    <div class="col-md-12 banner-bag">
+                                        <img class="img-responsive" src="https://cdn0.fahasa.com/media/magentothem/banner7/NCCt7_V_QV920x420.jpg" alt=" " />
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                            </article>
+                        </div>
+                        <ul class="wmuSliderPagination">
+                            <!-- <li><a href="#" class="">0</a></li>
+                            <li><a href="#" class="">1</a></li>
+                            <li><a href="#" class="">2</a></li> -->
+                        </ul>
+                        <script src="~/assets/js/jquery.wmuSlider.js"></script>
+                        <script>
+                            $('.example1').wmuSlider();
+                        </script>
+                    </div>
+                </div>
+            </a>
+            <!-- New product -->
+            <div class="products">
+                <h5 class="latest-product">Sản phẩm mới nhất</h5>
+                <a class="view-all" href="product.html">Xem thêm<span> </span></a>
+            </div>
+            <div class="product-left">
+                @{  int num_new_product = listNewProduct.Count;
+                    int a = 0;
+                }
+                @foreach (var item in listNewProduct)
+                {
+                    var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                    if (a < num_new_product - 1)
+                    {
+                <div class="col-md-4 chain-grid">
+                    <a href="@url"><img class="img-responsive chain" src="@item.Image" alt="" /></a>
+                    <span class="star"> </span>
+                    <div class="grid-chain-bottom">
+                        <h6><a href="@url">@item.Name</a></h6>
+                        <div class="star-price">
+                            <div class="dolor-grid">
+                                <span class="actual">@item.Price</span>
+                                <span class="reducedfrom">@item.PromotionPrice</span>
+                                <span class="rating">
+                                    <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                                    <label for="rating-input-1-5" class="rating-star1"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
+                                    <label for="rating-input-1-4" class="rating-star1"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1">
+                                    <label for="rating-input-1-3" class="rating-star"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1">
+                                    <label for="rating-input-1-2" class="rating-star"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
+                                    <label for="rating-input-1-1" class="rating-star"> </label>
+                                </span>
+                            </div>
+                            <a class="now-get get-cart" href="/them-gio-hang?productId=@item.ID&quantity=1">Thêm vào giỏ hàng</a>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                    }
+                    else
+                    {
+                <div class="col-md-4 chain-grid grid-top-chain">
+                    <a href="@url"><img class="img-responsive chain" src="@item.Image" alt="" /></a>
+                    <span class="star"> </span>
+                    <div class="grid-chain-bottom">
+                        <h6><a href="@url">@item.Name</a></h6>
+                        <div class="star-price">
+                            <div class="dolor-grid">
+                                <span class="actual">@item.Price</span>
+                                <span class="reducedfrom">@item.PromotionPrice</span>
+                                <span class="rating">
+                                    <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                                    <label for="rating-input-1-5" class="rating-star1"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
+                                    <label for="rating-input-1-4" class="rating-star1"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1">
+                                    <label for="rating-input-1-3" class="rating-star"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1">
+                                    <label for="rating-input-1-2" class="rating-star"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
+                                    <label for="rating-input-1-1" class="rating-star"> </label>
+                                </span>
+                            </div>
+                            <a class="now-get get-cart" href="/them-gio-hang?productId=@item.ID&quantity=1">Thêm vào giỏ hàng</a>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                    }
+                    a = a + 1;
+                }
+                <div class="clearfix"> </div>
+            </div>
+
+            <!-- Hot product -->
+            <div class="products">
+                <h5 class="latest-product">Sản phẩm bán chạy</h5>
+                <a class="view-all" href="product.html">Xem thêm<span> </span></a>
+            </div>
+            <div class="product-left">
+                @{  int num_hot_product = listFeatureProduct.Count;
+                    int b = 0;
+                }
+                @foreach (var item in listFeatureProduct)
+                {
+                    var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                    if (b < num_hot_product - 1)
+                    {
+                <div class="col-md-4 chain-grid">
+                    <a href="@url"><img class="img-responsive chain" src="@item.Image" alt="" /></a>
+                    <span class="star"> </span>
+                    <div class="grid-chain-bottom">
+                        <h6><a href="@url">@item.Name</a></h6>
+                        <div class="star-price">
+                            <div class="dolor-grid">
+                                <span class="actual">@item.Price</span>
+                                <span class="reducedfrom">@item.PromotionPrice</span>
+                                <span class="rating">
+                                    <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                                    <label for="rating-input-1-5" class="rating-star1"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
+                                    <label for="rating-input-1-4" class="rating-star1"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1">
+                                    <label for="rating-input-1-3" class="rating-star"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1">
+                                    <label for="rating-input-1-2" class="rating-star"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
+                                    <label for="rating-input-1-1" class="rating-star"> </label>
+                                </span>
+                            </div>
+                            <a class="now-get get-cart" href="/them-gio-hang?productId=@item.ID&quantity=1">Thêm vào giỏ hàng</a>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                    }
+                    else
+                    {
+                <div class="col-md-4 chain-grid grid-top-chain">
+                    <a href="@url"><img class="img-responsive chain" src="@item.Image" alt="" /></a>
+                    <span class="star"> </span>
+                    <div class="grid-chain-bottom">
+                        <h6><a href="@url">@item.Name</a></h6>
+                        <div class="star-price">
+                            <div class="dolor-grid">
+                                <span class="actual">@item.Price</span>
+                                <span class="reducedfrom">@item.PromotionPrice</span>
+                                <span class="rating">
+                                    <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                                    <label for="rating-input-1-5" class="rating-star1"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
+                                    <label for="rating-input-1-4" class="rating-star1"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1">
+                                    <label for="rating-input-1-3" class="rating-star"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1">
+                                    <label for="rating-input-1-2" class="rating-star"> </label>
+                                    <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
+                                    <label for="rating-input-1-1" class="rating-star"> </label>
+                                </span>
+                            </div>
+                            <a class="now-get get-cart" href="/them-gio-hang?productId=@item.ID&quantity=1">Thêm vào giỏ hàng</a>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                    }
+                    b = b + 1;
+                }
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        @{ Html.RenderAction("ProductCategory", "Product"); }
+        <div class="clearfix"> </div>
+    </div>
+
+    <!--Footer-->
+    @{ Html.RenderAction("Footer", "Home"); }
+</body>
